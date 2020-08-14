@@ -3,6 +3,8 @@ arquivo_entrada_1 = 'dataset-1-a.csv'
 arquivo_entrada_2 = 'dataset-1-b.csv'
 arquivo_entrada_3 = 'dataset-1-c.csv'
 
+lista_arquivos = [arquivo_entrada_1, arquivo_entrada_2, arquivo_entrada_3]
+
 # arquivos de saídas
 arquivo_saida_1 = open('saida_1_a.txt', 'w', encoding="utf-8")
 
@@ -18,13 +20,15 @@ arquivo_saida_1 = open('saida_1_a.txt', 'w', encoding="utf-8")
 # Para testar o programa programa, use os três arquivos fornecidos como anexos na atividade.
 
 
-with open(arquivo_entrada_1,'r') as manipulador:
+with open(arquivo_entrada_3,'r') as manipulador:
 
     rows = manipulador.readlines()
 
     i=0
     n = 0
     t = 0
+    p = 0
+    flag = False
 
     for row in rows:
         if i == 0:
@@ -34,10 +38,19 @@ with open(arquivo_entrada_1,'r') as manipulador:
         elif i == 1:
             arquivo_saida_1.write('Quantidade de números do conjunto (t): {}'.format(row))
             t = row
+            arquivo_saida_1.write('Segue conjunto D:\n')
 
         elif (i > 1) and (row == n):
+            p = i - 1
             arquivo_saida_1.write('True\n')
+            flag = True
+
         elif (i > 1):
             arquivo_saida_1.write('False\n')
-        
+
         i += 1
+
+    if flag:
+        arquivo_saida_1.write('O valor de p é: {}'.format(p))
+    else:
+        arquivo_saida_1.write('O valor de p é: -1\n')

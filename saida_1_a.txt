@@ -1,5 +1,6 @@
-Número (n): 13
+Número (n): 10
 Quantidade de números do conjunto (t): 10
+Segue conjunto D:
 False
 False
 False
@@ -7,6 +8,7 @@ False
 False
 False
 False
-True
 False
 False
+False
+O valor de p é: -1
