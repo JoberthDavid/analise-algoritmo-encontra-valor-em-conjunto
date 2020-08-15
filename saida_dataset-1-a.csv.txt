@@ -1,7 +1,7 @@
 #### Para o arquivo dataset-1-a.csv seguem os resultados:
 Número (n): 13
 Quantidade de números do conjunto (t): 10
-Segue conjunto D:
+Seguem os resultados para o conjunto D:
 False
 False
 False
@@ -13,3 +13,4 @@ True
 False
 False
 O valor de p é: 8
+O valor (em milissegundos) de r é: 0.747

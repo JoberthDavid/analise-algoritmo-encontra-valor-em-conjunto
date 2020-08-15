@@ -1,3 +1,5 @@
+import timeit
+
 # arquivos de entrada
 arquivo_entrada_1 = 'dataset-1-a.csv'
 arquivo_entrada_2 = 'dataset-1-b.csv'
@@ -16,9 +18,10 @@ lista_arquivos = [arquivo_entrada_1, arquivo_entrada_2, arquivo_entrada_3]
 # ●	um número real  , que corresponde ao tempo de execução do programa em milissegundos.
 # Para testar o programa programa, use os três arquivos fornecidos como anexos na atividade.
 
-#entrada = lista_arquivos[2]
 
 for entrada in lista_arquivos:
+
+    start = timeit.default_timer()
 
     # arquivos de saídas
     arquivo_saida = open('saida_{}.txt'.format(entrada), 'w', encoding="utf-8")
@@ -43,7 +46,7 @@ for entrada in lista_arquivos:
             elif i == 1:
                 arquivo_saida.write('Quantidade de números do conjunto (t): {}'.format(row))
                 t = row
-                arquivo_saida.write('Segue conjunto D:\n')
+                arquivo_saida.write('Seguem os resultados para o conjunto D:\n')
 
             elif (i > 1) and (row == n):
                 p = i - 1
@@ -56,6 +59,13 @@ for entrada in lista_arquivos:
             i += 1
 
         if flag:
-            arquivo_saida.write('O valor de p é: {}'.format(p))
+            arquivo_saida.write('O valor de p é: {}\n'.format(p))
         else:
             arquivo_saida.write('O valor de p é: -1\n')
+
+        stop = timeit.default_timer()
+
+        r1 = round( ( start * 1000 ),3)
+        r2 = round( ( stop * 1000 ), 3)
+
+        arquivo_saida.write('O valor (em milissegundos) de r é: {}'.format( round( ( r2-r1 ),3) ))
