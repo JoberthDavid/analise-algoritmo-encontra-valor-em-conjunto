@@ -24,7 +24,7 @@ for entrada in lista_arquivos:
     start = timeit.default_timer()
 
     # arquivos de saídas
-    arquivo_saida = open('saida_{}.txt'.format(entrada), 'w', encoding="utf-8")
+    arquivo_saida = open('resposta-{}.txt'.format(entrada), 'w', encoding="utf-8")
 
     arquivo_saida.write('#### Para o arquivo {} seguem os resultados:\n'.format(entrada))
 

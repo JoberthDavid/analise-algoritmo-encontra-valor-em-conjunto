@@ -13,4 +13,4 @@ False
 False
 False
 O valor de p é: 1
-O valor (em milissegundos) de r é: 0.859
+O valor (em milissegundos) de r é: 1.275
