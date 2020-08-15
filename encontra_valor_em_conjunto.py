@@ -5,8 +5,10 @@ arquivo_entrada_3 = 'dataset-1-c.csv'
 
 lista_arquivos = [arquivo_entrada_1, arquivo_entrada_2, arquivo_entrada_3]
 
+path = None
+
 # arquivos de saídas
-arquivo_saida_1 = open('saida_1_a.txt', 'w', encoding="utf-8")
+arquivo_saida = open('saida_{}.txt'.format(path), 'w', encoding="utf-8")
 
 
 # Considere que um arquivo de entrada (em formato texto) tenha o seguinte formato:
@@ -19,38 +21,42 @@ arquivo_saida_1 = open('saida_1_a.txt', 'w', encoding="utf-8")
 # ●	um número real  , que corresponde ao tempo de execução do programa em milissegundos.
 # Para testar o programa programa, use os três arquivos fornecidos como anexos na atividade.
 
+for entrada in lista_arquivos:
 
-with open(arquivo_entrada_3,'r') as manipulador:
+    path = entrada
+    arquivo_saida.write('\n#### Para o arquivo {} seguem os resultados:\n'.format(entrada))
 
-    rows = manipulador.readlines()
+    with open(entrada,'r') as manipulador:
 
-    i=0
-    n = 0
-    t = 0
-    p = 0
-    flag = False
+        rows = manipulador.readlines()
 
-    for row in rows:
-        if i == 0:
-            arquivo_saida_1.write('Número (n): {}'.format(row))
-            n = row
+        i=0
+        n = 0
+        t = 0
+        p = 0
+        flag = False
 
-        elif i == 1:
-            arquivo_saida_1.write('Quantidade de números do conjunto (t): {}'.format(row))
-            t = row
-            arquivo_saida_1.write('Segue conjunto D:\n')
+        for row in rows:
+            if i == 0:
+                arquivo_saida.write('Número (n): {}'.format(row))
+                n = row
 
-        elif (i > 1) and (row == n):
-            p = i - 1
-            arquivo_saida_1.write('True\n')
-            flag = True
+            elif i == 1:
+                arquivo_saida.write('Quantidade de números do conjunto (t): {}'.format(row))
+                t = row
+                arquivo_saida.write('Segue conjunto D:\n')
 
-        elif (i > 1):
-            arquivo_saida_1.write('False\n')
+            elif (i > 1) and (row == n):
+                p = i - 1
+                arquivo_saida.write('True\n')
+                flag = True
 
-        i += 1
+            elif (i > 1):
+                arquivo_saida.write('False\n')
 
-    if flag:
-        arquivo_saida_1.write('O valor de p é: {}'.format(p))
-    else:
-        arquivo_saida_1.write('O valor de p é: -1\n')
+            i += 1
+
+        if flag:
+            arquivo_saida.write('O valor de p é: {}'.format(p))
+        else:
+            arquivo_saida.write('O valor de p é: -1\n')
