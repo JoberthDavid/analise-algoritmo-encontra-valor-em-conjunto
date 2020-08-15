@@ -1,0 +1,15 @@
+#### Para o arquivo dataset-1-b.csv seguem os resultados:
+Número (n): 28
+Quantidade de números do conjunto (t): 10
+Segue conjunto D:
+True
+False
+False
+False
+False
+False
+False
+False
+False
+False
+O valor de p é: 1

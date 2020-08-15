@@ -5,11 +5,6 @@ arquivo_entrada_3 = 'dataset-1-c.csv'
 
 lista_arquivos = [arquivo_entrada_1, arquivo_entrada_2, arquivo_entrada_3]
 
-path = None
-
-# arquivos de saídas
-arquivo_saida = open('saida_{}.txt'.format(path), 'w', encoding="utf-8")
-
 
 # Considere que um arquivo de entrada (em formato texto) tenha o seguinte formato:
 # ●	a primeira linha contém o número n;
@@ -21,10 +16,14 @@ arquivo_saida = open('saida_{}.txt'.format(path), 'w', encoding="utf-8")
 # ●	um número real  , que corresponde ao tempo de execução do programa em milissegundos.
 # Para testar o programa programa, use os três arquivos fornecidos como anexos na atividade.
 
+#entrada = lista_arquivos[2]
+
 for entrada in lista_arquivos:
 
-    path = entrada
-    arquivo_saida.write('\n#### Para o arquivo {} seguem os resultados:\n'.format(entrada))
+    # arquivos de saídas
+    arquivo_saida = open('saida_{}.txt'.format(entrada), 'w', encoding="utf-8")
+
+    arquivo_saida.write('#### Para o arquivo {} seguem os resultados:\n'.format(entrada))
 
     with open(entrada,'r') as manipulador:
 
